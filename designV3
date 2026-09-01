@@ -1,0 +1,40 @@
+flow-input-table.yaml の作成が完了しました。
+
+次に、このファイルをTest Case生成処理へ組み込むため、
+design.mdを確認してください。
+
+今回追加した情報源：
+
+- flow-input-table.yaml
+- key：Flow名
+- inputTable：入力テーブル名
+- 登録されている31Flowのみを対象とする
+- 未登録Flowについて推測・補完しない
+
+今回の目的は、
+Test Case生成時に必要となる入力テーブル名を、
+flow-input-table.yamlに該当Flowが存在する場合は
+そこから取得できるようにすることです。
+
+特に、現在のdesignではtargetTableが取得できない場合に
+「確認要」とする設計がありますが、
+
+flow-input-table.yamlに該当Flowが存在する場合は、
+inputTableを入力テーブル名として使用し、
+入力テーブル名未確定を理由とした確認Test Caseを
+生成しないようにしたいです。
+
+まずdesign.mdを確認し、
+
+1. どのセクションを変更する必要があるか
+2. 現在の入力テーブル名の取得ロジックがどうなっているか
+3. flow-input-table.yamlをどの段階で参照するのが適切か
+4. 既存のtargetTableとの優先順位をどう整理するべきか
+5. R2900の場合、最終的にtm0010を取得できる設計になるか
+
+を分析してください。
+
+まだdesign.mdは変更しないでください。
+requirements.md、tasks.md、steeringも変更しないでください。
+
+まず修正案だけを提示してください。
