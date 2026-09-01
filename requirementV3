@@ -1,0 +1,13 @@
+requirements.md は概ね問題ありません。
+
+3.2「期待値の根拠」について、根拠の役割を明確に分離してください。
+
+- フィールド単位の変換・期待値：
+  mapping / editSpec を主要根拠とする
+- フロー種別ごとの業務動作・終了状態：
+  フロー定義YAML、必要に応じて design-sequence.md を根拠とする
+
+design-sequence.md をフィールド変換・フィールド期待値の根拠として扱わないことを明記してください。
+
+その他の requirements.md の内容は変更しないでください。
+design.md、tasks.md、steering はまだ変更しないでください。
