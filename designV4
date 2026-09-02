@@ -1,0 +1,53 @@
+分析結果を確認しました。
+以下の方針で確定します。
+
+1. 用語は分離してください。
+
+- inputTableName：
+  受信系Flowにおける読み取り元・入力テーブル名。
+  flow-input-table.yamlから取得する。
+
+- targetTable：
+  送信系Flow等における更新対象・書き込み先テーブル名。
+  既存の意味・既存ロジックを維持する。
+
+flow-input-table.yamlのinputTableをtargetTableとして扱わないでください。
+
+2. 今回のflow-input-table.yamlの適用範囲は、
+   recv-full / recv-diff の受信系Flowに限定してください。
+
+YAML内に送信系Flowが存在していても、
+今回の設計変更では使用しません。
+送信系への適用は今回の対象外とします。
+
+3. 受信系Flowの入力テーブル名解決は以下としてください。
+
+- flow-input-table.yamlをFlow名で参照する
+- 該当Flowが存在する場合：
+  inputTableをinputTableNameとして確定する
+- 該当Flowが存在しない場合：
+  推測・補完せず、従来どおり確認要とする
+- YAMLに登録されていないFlowについて、
+  類似Flow名などから推測しない
+
+4. R2900の場合は、
+   R2900 → inputTableName=tm0010
+   と解決され、
+   tm0010にテストデータを準備してFlowを実行する
+   Test Caseを生成できる設計としてください。
+
+その場合、
+「入力テーブル名が未確定」であることだけを理由とした
+TC-CONFIRMは生成しないでください。
+
+以上の方針でdesign.mdを修正してください。
+
+requirements.md、tasks.md、steering、
+flow-input-table.yamlは変更しないでください。
+
+修正後、
+- 変更したセクション
+- inputTableNameの解決フロー
+- R2900が最終的にどのようなTest Case生成につながるか
+
+を簡潔に報告してください。
